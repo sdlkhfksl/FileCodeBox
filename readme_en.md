@@ -1,331 +1,311 @@
-# FileCodeBox
-
 <div align="center">
 
-<img src="https://fastly.jsdelivr.net/gh/vastsa/FileCodeBox@V1.6/static/banners/img_1.png" alt="FileCodeBox Logo">
+# FileCodeBox
 
-<p><em>Share text and files anonymously with a passcode, like picking up a package</em></p>
+### Anonymous File & Text Sharing with Passcode
 
-[![GitHub stars](https://img.shields.io/github/stars/vastsa/FileCodeBox)](https://github.com/vastsa/FileCodeBox/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/vastsa/FileCodeBox)](https://github.com/vastsa/FileCodeBox/network)
-[![GitHub issues](https://img.shields.io/github/issues/vastsa/FileCodeBox)](https://github.com/vastsa/FileCodeBox/issues)
-[![GitHub license](https://img.shields.io/github/license/vastsa/FileCodeBox)](https://github.com/vastsa/FileCodeBox/blob/master/LICENSE)
-[![QQ Group](https://img.shields.io/badge/QQ%20Group-739673698-blue.svg)](https://qm.qq.com/q/PemPzhdEIM)
-[![Python Version](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org)
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.68+-green.svg)](https://fastapi.tiangolo.com)
-[![Vue Version](https://img.shields.io/badge/Vue.js-3.x-brightgreen.svg)](https://v3.vuejs.org)
+<img src="https://fastly.jsdelivr.net/gh/vastsa/FileCodeBox@V1.6/static/banners/img_1.png" alt="FileCodeBox Logo" width="400">
 
-[简体中文](./readme.md) | [Deployment Guide](https://github.com/vastsa/FileCodeBox/wiki/Deployment-Guide) | [FAQ](https://github.com/vastsa/FileCodeBox/wiki/FAQ)
+Share files like picking up a package — no registration required, just enter the passcode
+
+[![GitHub stars](https://img.shields.io/github/stars/vastsa/FileCodeBox?style=flat-square&logo=github)](https://github.com/vastsa/FileCodeBox/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/vastsa/FileCodeBox?style=flat-square&logo=github)](https://github.com/vastsa/FileCodeBox/network)
+[![GitHub issues](https://img.shields.io/github/issues/vastsa/FileCodeBox?style=flat-square&logo=github)](https://github.com/vastsa/FileCodeBox/issues)
+[![GitHub license](https://img.shields.io/github/license/vastsa/FileCodeBox?style=flat-square)](https://github.com/vastsa/FileCodeBox/blob/master/LICENSE)
+[![Docker Pulls](https://img.shields.io/docker/pulls/lanol/filecodebox?style=flat-square&logo=docker)](https://hub.docker.com/r/lanol/filecodebox)
+
+[![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.128+-009688?style=flat-square&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
+[![Vue.js](https://img.shields.io/badge/Vue.js-3.x-4FC08D?style=flat-square&logo=vue.js&logoColor=white)](https://vuejs.org)
+
+[简体中文](./README.md) | [Live Demo](https://share.lanol.cn) | [Documentation](https://github.com/vastsa/FileCodeBox/wiki/Deployment-Guide) | [FAQ](https://github.com/vastsa/FileCodeBox/wiki/FAQ)
+
+```bash
+# 🚀 Quick Deploy
+docker run -d -p 12345:12345 -v /opt/FileCodeBox:/app/data --name filecodebox lanol/filecodebox:latest
+# China Mirror (if slow): docker.cnb.cool/aixk/filecodebox
+```
 
 </div>
+
+---
+
+## Table of Contents
+
+- [Introduction](#-introduction)
+- [Features](#-features)
+- [Screenshots](#-screenshots)
+- [Quick Start](#-quick-start)
+- [Usage Guide](#-usage-guide)
+- [Development](#-development)
+- [FAQ](#-faq)
+- [Contributing](#-contributing)
+- [Statistics](#-statistics)
+- [Disclaimer](#-disclaimer)
+
+---
 
 ## 📝 Introduction
 
-FileCodeBox is a lightweight file sharing tool developed with FastAPI + Vue3. It allows users to share text and files
-easily, where recipients only need a passcode to retrieve the files, just like picking up a package from a delivery
-locker.
+FileCodeBox is a lightweight file sharing tool built with **FastAPI + Vue3**. Users can anonymously share text and files, and recipients only need to enter a passcode to retrieve the content — just like picking up a package from a locker.
 
-## 🖼️ Preview
+### Use Cases
 
+| Scenario | Description |
+|----------|-------------|
+| 📁 **Temporary File Sharing** | Quick file sharing without registration |
+| 📝 **Code Snippet Sharing** | Share code, config files, and text content |
+| 🕶️ **Anonymous Transfer** | Privacy-protected peer-to-peer transfer |
+| 🔄 **Cross-Device Transfer** | Quickly sync files between devices |
+| 💾 **Temporary Storage** | Cloud storage with custom expiration |
+| 🌐 **Private Service** | Build your own enterprise or personal sharing service |
+
+---
+
+## ✨ Features
+
+<table>
+<tr>
+<td width="33%" valign="top">
+
+### 🚀 Lightweight & Fast
+- FastAPI + SQLite3 backend
+- Vue3 + Element Plus frontend
+- One-click Docker deployment
+- Minimal resource usage
+
+</td>
+<td width="33%" valign="top">
+
+### 🔒 Secure & Reliable
+- IP upload rate limiting
+- Passcode attempt limiting
+- Auto file expiration cleanup
+- Admin authentication support
+
+</td>
+<td width="33%" valign="top">
+
+### 📤 Easy Upload
+- Drag & drop upload
+- Copy & paste upload
+- Command line curl upload
+- Batch file upload
+
+</td>
+</tr>
+<tr>
+<td width="33%" valign="top">
+
+### 🎫 Flexible Sharing
+- Random / custom passcodes
+- Set expiration (time/count)
+- Permanent validity support
+- Unified text & file management
+
+</td>
+<td width="33%" valign="top">
+
+### 💾 Multiple Storage
+- Local file system
+- S3-compatible storage
+- [OneDrive](./docs/guide/storage-onedrive.md)
+- [OpenDAL](./docs/guide/storage-opendal.md)
+
+</td>
+<td width="33%" valign="top">
+
+### 🌍 Internationalization
+- Simplified Chinese
+- Traditional Chinese
+- English
+- Responsive design / Dark mode
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🖼️ Screenshots
+
+> Frontend repositories: [2024 Theme](https://github.com/vastsa/FileCodeBoxFronted) | [2023 Theme](https://github.com/vastsa/FileCodeBoxFronted2023)
+
+<details open>
+<summary><b>🎨 New Interface (2024)</b></summary>
+<br>
 <div align="center">
-<h3>
-<a href="https://github.com/vastsa/FileCodeBoxFronted" target="_blank">
-<img src="https://img.shields.io/badge/Frontend-FileCodeBoxFronted2024-blue?style=for-the-badge&logo=github" alt="前端仓库2024">
-</a>
-<a href="https://github.com/vastsa/FileCodeBoxFronted2023" target="_blank">
-<img src="https://img.shields.io/badge/Frontend-FileCodeBoxFronted2023-blue?style=for-the-badge&logo=github" alt="前端仓库2023">
-</a>
-&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="https://share.lanol.cn" target="_blank">
-<img src="https://img.shields.io/badge/Demo-share.lanol.cn-green?style=for-the-badge&logo=internet-explorer" alt="演示站点">
-</a>
-</h3>
+<table>
+<tr>
+<td><img src="./.github/images/img_7.png" alt="File Upload"></td>
+<td><img src="./.github/images/img_8.png" alt="Text Share"></td>
+</tr>
+<tr>
+<td><img src="./.github/images/img_10.png" alt="File Management"></td>
+<td><img src="./.github/images/img_9.png" alt="System Settings"></td>
+</tr>
+<tr>
+<td><img src="./.github/images/img_11.png" alt="Mobile View"></td>
+<td><img src="./.github/images/img_12.png" alt="Dark Mode"></td>
+</tr>
+</table>
 </div>
+</details>
 
-### New Interface
-
+<details>
+<summary><b>📦 Classic Interface (2023)</b></summary>
+<br>
 <div align="center">
 <table>
 <tr>
-<td><img src="./.github/images/img_7.png" alt="File Upload" title="File Upload Interface"></td>
-<td><img src="./.github/images/img_8.png" alt="Text Share" title="Text Share Interface"></td>
+<td><img src="./.github/images/img.png" alt="Home"></td>
+<td><img src="./.github/images/img_1.png" alt="Upload"></td>
 </tr>
 <tr>
-<td><img src="./.github/images/img_10.png" alt="File Management" title="File Management Interface"></td>
-<td><img src="./.github/images/img_9.png" alt="System Settings" title="System Settings Interface"></td>
-</tr>
-<tr>
-<td><img src="./.github/images/img_11.png" alt="Mobile View" title="Mobile Interface"></td>
-<td><img src="./.github/images/img_12.png" alt="Dark Mode" title="Dark Mode Interface"></td>
-</tr>
-<tr>
-<td><img src="./.github/images/img_13.png" alt="Internationalization" title="Language Support"></td>
-<td><img src="./.github/images/img_14.png" alt="Responsive" title="Responsive Design"></td>
+<td><img src="./.github/images/img_2.png" alt="Management"></td>
+<td><img src="./.github/images/img_3.png" alt="Settings"></td>
 </tr>
 </table>
 </div>
+</details>
 
-### Classic Interface
-
-<div align="center">
-<table>
-<tr>
-<td><img src="./.github/images/img.png" alt="Home" title="Home Page"></td>
-<td><img src="./.github/images/img_1.png" alt="Upload" title="Upload Interface"></td>
-</tr>
-<tr>
-<td><img src="./.github/images/img_2.png" alt="Management" title="Management Interface"></td>
-<td><img src="./.github/images/img_3.png" alt="Settings" title="Settings Interface"></td>
-</tr>
-<tr>
-<td><img src="./.github/images/img_4.png" alt="Share" title="Share Interface"></td>
-<td><img src="./.github/images/img_5.png" alt="Download" title="Download Interface"></td>
-</tr>
-</table>
-</div>
-
-## 🎯 Use Cases
-
-<table>
-<tr>
-<td align="center">
-<h4>📁 Temporary File Sharing</h4>
-Quick file sharing without registration
-</td>
-<td align="center">
-<h4>📝 Quick Text Sharing</h4>
-Share code snippets and text content
-</td>
-<td align="center">
-<h4>🕶️ Anonymous Transfer</h4>
-Privacy-protected file transfer
-</td>
-</tr>
-<tr>
-<td align="center">
-<h4>💾 Temporary Storage</h4>
-File storage with expiration time
-</td>
-<td align="center">
-<h4>🔄 Cross-platform Transfer</h4>
-Quick file transfer between devices
-</td>
-<td align="center">
-<h4>🌐 Private Share Service</h4>
-Build your own file sharing service
-</td>
-</tr>
-</table>
-
-## ✨ Core Features
-
-<table>
-<tr>
-<td align="center">
-<h4>🚀 Lightweight</h4>
-Based on FastAPI + SQLite3 + Vue3 + ElementUI
-</td>
-<td align="center">
-<h4>📤 Easy Upload</h4>
-Support copy-paste and drag-drop
-</td>
-<td align="center">
-<h4>📦 Multiple Types</h4>
-Support text and various file types
-</td>
-</tr>
-<tr>
-<td align="center">
-<h4>🔒 Security</h4>
-
-- IP upload limits
-- Error attempt limits
-- File expiration
-
-</td>
-<td align="center">
-<h4>🎫 Passcode Sharing</h4>
-Random codes with customizable limits
-</td>
-<td align="center">
-<h4>🌍 Multi-language</h4>
-Support for Simplified Chinese, Traditional Chinese, and English
-</td>
-</tr>
-<tr>
-<td align="center">
-<h4>🎭 Anonymous</h4>
-No registration required
-</td>
-<td align="center">
-<h4>🛠 Admin Panel</h4>
-File and system management
-</td>
-<td align="center">
-<h4>🐳 Docker</h4>
-One-click deployment
-</td>
-</tr>
-<tr>
-<td align="center">
-<h4>💾 Storage Options</h4>
-Local, S3, <a href="./docs/guide/storage-onedrive.md">OneDrive</a>, <a href="./docs/guide/storage-opendal.md">OpenDAL</a> support
-</td>
-<td align="center">
-<h4>📱 Responsive</h4>
-Mobile-friendly design
-</td>
-<td align="center">
-<h4>💻 CLI Support</h4>
-Command-line download
-</td>
-</tr>
-</table>
+---
 
 ## 🚀 Quick Start
 
-### Docker Deployment
+### Docker Deployment (Recommended)
 
-#### Docker CLI
+**Option 1: Docker CLI**
 
 ```bash
-docker run -d --restart=always -p 12345:12345 -v /opt/FileCodeBox/:/app/data --name filecodebox lanol/filecodebox:latest
+# Docker Hub (Recommended)
+docker run -d --restart always -p 12345:12345 -v /opt/FileCodeBox:/app/data --name filecodebox lanol/filecodebox:latest
+
+# China Mirror (if Docker Hub is slow)
+docker run -d --restart always -p 12345:12345 -v /opt/FileCodeBox:/app/data --name filecodebox docker.cnb.cool/aixk/filecodebox
 ```
 
-#### Docker Compose
+**Option 2: Docker Compose**
 
-```yml
-version: "3"
+```yaml
 services:
-  file-code-box:
+  filecodebox:
     image: lanol/filecodebox:latest
-    volumes:
-      - fcb-data:/app/data:rw
+    container_name: filecodebox
     restart: unless-stopped
     ports:
       - "12345:12345"
+    volumes:
+      - ./data:/app/data
     environment:
       - WORKERS=4
       - LOG_LEVEL=info
-volumes:
-  fcb-data:
-    external: false
 ```
 
-#### Environment Variables
+```bash
+docker compose up -d
+```
+
+**Environment Variables**
 
 | Variable | Default | Description |
 |----------|---------|-------------|
-| `HOST` | `::` | Listen address, supports IPv4/IPv6 dual-stack |
+| `HOST` | `::` | Listen address (supports IPv4/IPv6 dual-stack) |
 | `PORT` | `12345` | Service port |
-| `WORKERS` | `4` | Number of worker processes, recommended to set to CPU cores |
-| `LOG_LEVEL` | `info` | Log level: debug/info/warning/error |
+| `WORKERS` | `4` | Worker processes (recommended: CPU cores) |
+| `LOG_LEVEL` | `info` | Log level: `debug` / `info` / `warning` / `error` |
 
-**Custom configuration example:**
+### Reverse Proxy Configuration
 
-```bash
-docker run -d --restart=always \
-  -p 12345:12345 \
-  -v /opt/FileCodeBox/:/app/data \
-  -e WORKERS=8 \
-  -e LOG_LEVEL=warning \
-  --name filecodebox \
-  lanol/filecodebox:latest
-```
-
-### Configure Reverse Proxy (Nginx Example)
-
-Please note that the following configurations must be added to ensure proper handling of client IP and proxy requests:
+When using Nginx, add the following configuration to properly obtain client IP:
 
 ```nginx
 location / {
-    proxy_set_header X-Real-IP $remote_addr;      # Set real client IP
+    proxy_pass http://127.0.0.1:12345;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    proxy_pass http://localhost:12345;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    client_max_body_size 100m;  # Adjust upload size limit as needed
 }
 ```
 
 ### Manual Deployment
 
-1. Clone the repository
-
 ```bash
+# 1. Clone the repository
 git clone https://github.com/vastsa/FileCodeBox.git
-```
-
-2. Install dependencies
-
-```bash
 cd FileCodeBox
+
+# 2. Install dependencies
 pip install -r requirements.txt
-```
 
-3. Start the service
-
-```bash
+# 3. Start the service
 python main.py
 ```
 
+---
+
 ## 📖 Usage Guide
 
-### Share Files
+### Basic Operations
 
-1. Open the website, click "Share File"
-2. Select or drag files
-3. Set expiration time and count
-4. Get the passcode
+| Operation | Steps |
+|-----------|-------|
+| **Share File** | Open website → Select/drag files → Set expiration → Get passcode |
+| **Retrieve File** | Open website → Enter passcode → Download file or view text |
+| **Admin Panel** | Visit `/#/admin` → Enter password `FileCodeBox2023` |
 
-### Retrieve Files
+### Command Line Usage (curl)
 
-1. Open the website, enter passcode
-2. Click retrieve
-3. Download file or view text
+<details>
+<summary><b>Click to expand curl examples</b></summary>
 
-### Admin Panel
-
-1. Visit `/#/admin`
-2. Enter admin password `FileCodeBox2023`
-3. Manage files and settings
-
-### Command Line Upload (curl)
-
-Upload files and get extraction codes via curl:
+**Upload File**
 
 ```bash
-# Upload file (default 1 day expiration)
+# Basic upload (default 1 day expiration)
 curl -X POST "http://localhost:12345/share/file/" \
-  -F "file=@/path/to/your/file.txt"
+  -F "file=@/path/to/file.txt"
 
-# Upload file with expiration (1 hour)
+# Set 1 hour expiration
 curl -X POST "http://localhost:12345/share/file/" \
-  -F "file=@/path/to/your/file.txt" \
+  -F "file=@/path/to/file.txt" \
   -F "expire_value=1" \
   -F "expire_style=hour"
 
-# Upload file with download limit (10 downloads)
+# Set expiration after 10 downloads
 curl -X POST "http://localhost:12345/share/file/" \
-  -F "file=@/path/to/your/file.txt" \
+  -F "file=@/path/to/file.txt" \
   -F "expire_value=10" \
   -F "expire_style=count"
-
-# Share text
-curl -X POST "http://localhost:12345/share/text/" \
-  -F "text=This is the text content to share"
-
-# Download file by extraction code
-curl -L "http://localhost:12345/share/select/?code=YOUR_CODE" -o downloaded_file
 ```
 
-**Parameters:**
-- `expire_value`: Expiration value (default 1)
-- `expire_style`: Expiration type
-  - `day` - Days
-  - `hour` - Hours
-  - `minute` - Minutes
-  - `count` - Download count
-  - `forever` - Never expire
+**Share Text**
 
-**Response Example:**
+```bash
+curl -X POST "http://localhost:12345/share/text/" \
+  -F "text=Text content to share"
+```
+
+**Download File**
+
+```bash
+curl -L "http://localhost:12345/share/select/?code=PASSCODE" -o filename
+```
+
+**Expiration Parameters**
+
+| `expire_style` | Description |
+|----------------|-------------|
+| `day` | Days |
+| `hour` | Hours |
+| `minute` | Minutes |
+| `count` | Download count |
+| `forever` | Never expire |
+
+**Response Example**
+
 ```json
 {
   "code": 200,
@@ -337,102 +317,155 @@ curl -L "http://localhost:12345/share/select/?code=YOUR_CODE" -o downloaded_file
 }
 ```
 
-> Note: If guest upload is disabled in admin panel (`openUpload=false`), you need to login first to get a token, then add `Authorization: Bearer <token>` header to your requests.
-
-**When Authentication Required:**
+**When Authentication Required** (after admin disables guest upload)
 
 ```bash
-# 1. Login to get token
+# 1. Get token
 curl -X POST "http://localhost:12345/admin/login" \
   -H "Content-Type: application/json" \
   -d '{"password": "FileCodeBox2023"}'
 
-# Response:
-# {"code":200,"msg":"success","detail":{"token":"xxx.xxx.xxx","token_type":"Bearer"}}
-
-# 2. Upload file with token
+# 2. Upload with token
 curl -X POST "http://localhost:12345/share/file/" \
-  -H "Authorization: Bearer xxx.xxx.xxx" \
-  -F "file=@/path/to/your/file.txt"
-
-# 3. Share text with token
-curl -X POST "http://localhost:12345/share/text/" \
-  -H "Authorization: Bearer xxx.xxx.xxx" \
-  -F "text=This is the text content to share"
+  -H "Authorization: Bearer <token>" \
+  -F "file=@/path/to/file.txt"
 ```
 
-## 🛠 Development Guide
+</details>
+
+---
+
+## 🛠 Development
 
 ### Project Structure
 
 ```
 FileCodeBox/
-├── apps/           # Application code
-│   ├── admin/     # Admin backend
-│   └── base/      # Base functions
-├── core/          # Core functions
-├── data/          # Data directory
-└── fcb-fronted/   # Frontend code
+├── apps/              # Application modules
+│   ├── admin/         # Admin backend
+│   └── base/          # Base functionality
+├── core/              # Core modules
+├── data/              # Data directory (generated at runtime)
+├── docs/              # Documentation
+└── main.py            # Entry point
 ```
-
-### Development Environment
-
-- Python 3.8+
-- Node.js 14+
-- Vue 3
-- FastAPI
 
 ### Local Development
 
-1. Backend development
+**Backend**
 
 ```bash
+pip install -r requirements.txt
 python main.py
 ```
 
-2. Frontend development
+**Frontend**
 
 ```bash
+# Frontend repo: https://github.com/vastsa/FileCodeBoxFronted
 cd fcb-fronted
 npm install
 npm run dev
 ```
 
-## 🤝 Contributing
+### Tech Stack
 
-1. Fork the project
-2. Create your feature branch `git checkout -b feature/xxx`
-3. Commit your changes `git commit -m 'Add xxx'`
-4. Push to the branch `git push origin feature/xxx`
-5. Open a Pull Request
+| Category | Technology |
+|----------|------------|
+| **Backend Framework** | FastAPI 0.128+ / Uvicorn |
+| **Database** | SQLite + Tortoise ORM |
+| **Data Validation** | Pydantic 2.x |
+| **Async Support** | aiofiles / aiohttp / aioboto3 |
+| **Object Storage** | S3 Protocol / OneDrive / OpenDAL |
+| **Frontend Framework** | Vue 3 + Element Plus + Vite |
+| **Runtime** | Python 3.8+ / Node.js 18+ |
+| **Containerization** | Docker / Docker Compose |
+
+---
 
 ## ❓ FAQ
 
-### Q: How to modify upload size limit?
+<details>
+<summary><b>How to modify upload size limit?</b></summary>
 
-A: Change `uploadSize` in admin panel
+Modify the `uploadSize` configuration in the admin panel. If using Nginx reverse proxy, also modify `client_max_body_size`.
+</details>
 
-### Q: How to configure storage engine?
+<details>
+<summary><b>How to configure storage engine?</b></summary>
 
-A: Select storage engine and configure parameters in admin panel
+Select the storage engine type and configure parameters in the admin panel. Supports local storage, S3, OneDrive, OpenDAL, etc.
+</details>
 
-### Q: How to backup data?
+<details>
+<summary><b>How to backup data?</b></summary>
 
-A: Backup the `data` directory
+Backup the `data` directory, which contains the database and uploaded files.
+</details>
 
-For more questions, visit [Wiki](https://github.com/vastsa/FileCodeBox/wiki/常见问题)
+<details>
+<summary><b>How to change admin password?</b></summary>
 
-## �� Project Statistics and Analytics
+After logging into the admin panel, modify the `adminPassword` configuration in system settings.
+</details>
+
+For more questions, visit [Wiki](https://github.com/vastsa/FileCodeBox/wiki/FAQ)
+
+---
+
+## 🤝 Contributing
+
+Issues and Pull Requests are welcome!
+
+```bash
+# 1. Fork and clone
+git clone https://github.com/your-username/FileCodeBox.git
+
+# 2. Create branch
+git checkout -b feature/your-feature
+
+# 3. Commit changes
+git commit -m "feat: add your feature"
+
+# 4. Push and create PR
+git push origin feature/your-feature
+```
+
+---
+
+## 📊 Statistics
 
 <div align="center">
-<a href="https://hellogithub.com/repository/75ad7ffedd404a6485b4d621ec5b47e6" target="_blank"><img src="https://api.hellogithub.com/v1/widgets/recommend.svg?rid=75ad7ffedd404a6485b4d621ec5b47e6&claim_uid=beSz6INEkCM4mDH" alt="Featured｜HelloGitHub" style="width: 200px; height: 45px;" width="200" height="45" /></a>
+
+<a href="https://hellogithub.com/repository/75ad7ffedd404a6485b4d621ec5b47e6" target="_blank">
+  <img src="https://api.hellogithub.com/v1/widgets/recommend.svg?rid=75ad7ffedd404a6485b4d621ec5b47e6&claim_uid=beSz6INEkCM4mDH" alt="HelloGitHub" width="200">
+</a>
 
 ![Repobeats](https://repobeats.axiom.co/api/embed/7a6c92f1d96ee57e6fb67f0df371528397b0c9ac.svg)
 
 [![Star History](https://api.star-history.com/svg?repos=vastsa/FileCodeBox&type=Date)](https://star-history.com/#vastsa/FileCodeBox&Date)
+
 </div>
+
+---
+
+## 🗓 Roadmap
+
+- [ ] 2025 New Theme
+- [ ] File Collection Feature
+
+---
 
 ## 📜 Disclaimer
 
-This project is open-source for learning purposes only. It should not be used for any illegal purposes. The author is
-not responsible for any consequences. Please retain the project address and copyright information when using it.
+This project is open-source for learning and communication purposes only. It should not be used for any illegal purposes. The author is not responsible for any consequences. Please retain the project address and copyright information when using it.
+
+---
+
+<div align="center">
+
+**If you find this project helpful, please give it a ⭐ Star!**
+
+Made with ❤️ by [vastsa](https://github.com/vastsa)
+
+</div>

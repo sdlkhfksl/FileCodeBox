@@ -1,335 +1,311 @@
-# FileCodeBox - 文件快递柜
-
 <div align="center">
 
-<img src="https://fastly.jsdelivr.net/gh/vastsa/FileCodeBox@V1.6/static/banners/img_1.png" alt="FileCodeBox Logo">
+# FileCodeBox
 
-<p><em>匿名口令分享文本和文件，像拿快递一样取文件</em></p>
+### 文件快递柜 - 匿名口令分享文本和文件
 
-[![GitHub stars](https://img.shields.io/github/stars/vastsa/FileCodeBox)](https://github.com/vastsa/FileCodeBox/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/vastsa/FileCodeBox)](https://github.com/vastsa/FileCodeBox/network)
-[![GitHub issues](https://img.shields.io/github/issues/vastsa/FileCodeBox)](https://github.com/vastsa/FileCodeBox/issues)
-[![GitHub license](https://img.shields.io/github/license/vastsa/FileCodeBox)](https://github.com/vastsa/FileCodeBox/blob/master/LICENSE)
-[![QQ Group](https://img.shields.io/badge/QQ%20Group-739673698-blue.svg)](https://qm.qq.com/q/PemPzhdEIM)
-[![Python Version](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org)
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.68+-green.svg)](https://fastapi.tiangolo.com)
-[![Vue Version](https://img.shields.io/badge/Vue.js-3.x-brightgreen.svg)](https://v3.vuejs.org)
+<img src="https://fastly.jsdelivr.net/gh/vastsa/FileCodeBox@V1.6/static/banners/img_1.png" alt="FileCodeBox Logo" width="400">
 
-[English](./readme_en.md) | [部署教程](https://github.com/vastsa/FileCodeBox/wiki/部署教程) | [常见问题](https://github.com/vastsa/FileCodeBox/wiki/常见问题)
+像拿快递一样取文件，无需注册，输入口令即可获取
+
+[![GitHub stars](https://img.shields.io/github/stars/vastsa/FileCodeBox?style=flat-square&logo=github)](https://github.com/vastsa/FileCodeBox/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/vastsa/FileCodeBox?style=flat-square&logo=github)](https://github.com/vastsa/FileCodeBox/network)
+[![GitHub issues](https://img.shields.io/github/issues/vastsa/FileCodeBox?style=flat-square&logo=github)](https://github.com/vastsa/FileCodeBox/issues)
+[![GitHub license](https://img.shields.io/github/license/vastsa/FileCodeBox?style=flat-square)](https://github.com/vastsa/FileCodeBox/blob/master/LICENSE)
+[![Docker Pulls](https://img.shields.io/docker/pulls/lanol/filecodebox?style=flat-square&logo=docker)](https://hub.docker.com/r/lanol/filecodebox)
+
+[![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.68+-009688?style=flat-square&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
+[![Vue.js](https://img.shields.io/badge/Vue.js-3.x-4FC08D?style=flat-square&logo=vue.js&logoColor=white)](https://vuejs.org)
+
+[English](./readme_en.md) | [在线演示](https://share.lanol.cn) | [部署教程](https://github.com/vastsa/FileCodeBox/wiki/部署教程) | [常见问题](https://github.com/vastsa/FileCodeBox/wiki/常见问题) | [QQ群: 739673698](https://qm.qq.com/q/PemPzhdEIM)
+
+```bash
+# 🚀 一键部署
+docker run -d -p 12345:12345 -v /opt/FileCodeBox:/app/data --name filecodebox lanol/filecodebox:latest
+# 国内镜像（如果上面拉取缓慢）: docker.cnb.cool/aixk/filecodebox
+```
 
 </div>
 
-## 🚀 更新计划
+---
 
-- [ ] 2025年皮肤
-- [ ] 文件收集功能
+## 目录
+
+- [项目简介](#-项目简介)
+- [功能特性](#-功能特性)
+- [界面预览](#-界面预览)
+- [快速开始](#-快速开始)
+- [使用指南](#-使用指南)
+- [开发指南](#-开发指南)
+- [常见问题](#-常见问题)
+- [贡献指南](#-贡献指南)
+- [项目统计](#-项目统计)
+- [免责声明](#-免责声明)
+
+---
 
 ## 📝 项目简介
 
-FileCodeBox 是一个基于 FastAPI + Vue3 开发的轻量级文件分享工具。它允许用户通过简单的方式分享文本和文件，接收者只需要一个提取码就可以取得文件，就像从快递柜取出快递一样简单。
+FileCodeBox 是一个轻量级的文件分享工具，基于 **FastAPI + Vue3** 开发。用户可以通过简单的方式匿名分享文本和文件，接收者只需输入提取码即可获取内容——就像从快递柜取出快递一样简单。
 
-## 🖼️ 功能预览
+### 应用场景
 
-别问前端源码怎么是js了，麻烦仔细看下面的内容
+| 场景 | 描述 |
+|------|------|
+| 📁 **临时文件分享** | 快速分享文件，无需注册登录 |
+| 📝 **代码片段分享** | 分享代码、配置文件等文本内容 |
+| 🕶️ **匿名文件传输** | 保护隐私的点对点传输 |
+| 🔄 **跨设备传输** | 在不同设备间快速同步文件 |
+| 💾 **临时存储** | 支持自定义过期时间的云存储 |
+| 🌐 **私有服务** | 搭建企业或个人专属分享服务 |
+
+---
+
+## ✨ 功能特性
+
+<table>
+<tr>
+<td width="33%" valign="top">
+
+### 🚀 轻量高效
+- FastAPI + SQLite3 后端
+- Vue3 + Element Plus 前端
+- Docker 一键部署
+- 资源占用极低
+
+</td>
+<td width="33%" valign="top">
+
+### 🔒 安全可靠
+- IP 上传频率限制
+- 提取码错误次数限制
+- 文件自动过期清理
+- 支持管理员认证
+
+</td>
+<td width="33%" valign="top">
+
+### 📤 便捷上传
+- 拖拽上传
+- 复制粘贴上传
+- 命令行 curl 上传
+- 批量文件上传
+
+</td>
+</tr>
+<tr>
+<td width="33%" valign="top">
+
+### 🎫 灵活分享
+- 随机/自定义提取码
+- 可设置有效期（时间/次数）
+- 支持永久有效
+- 文本和文件统一管理
+
+</td>
+<td width="33%" valign="top">
+
+### 💾 多存储支持
+- 本地文件系统
+- S3 兼容存储
+- [OneDrive](./docs/guide/storage-onedrive.md)
+- [OpenDAL](./docs/guide/storage-opendal.md)
+
+</td>
+<td width="33%" valign="top">
+
+### 🌍 国际化
+- 简体中文
+- 繁体中文
+- English
+- 响应式设计 / 深色模式
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🖼️ 界面预览
+
+> 前端源码仓库：[2024主题](https://github.com/vastsa/FileCodeBoxFronted) | [2023主题](https://github.com/vastsa/FileCodeBoxFronted2023)
+
+<details open>
+<summary><b>🎨 新版界面 (2024)</b></summary>
+<br>
 <div align="center">
-<h3>
-<a href="https://github.com/vastsa/FileCodeBoxFronted" target="_blank">
-<img src="https://img.shields.io/badge/Frontend-主题2024仓库-blue?style=for-the-badge&logo=github" alt="前端仓库2024">
-</a>
-<a href="https://github.com/vastsa/FileCodeBoxFronted2023" target="_blank">
-<img src="https://img.shields.io/badge/Frontend-主题2023仓库-blue?style=for-the-badge&logo=github" alt="前端仓库2023">
-</a>
-&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="https://share.lanol.cn" target="_blank">
-<img src="https://img.shields.io/badge/Demo-share.lanol.cn-green?style=for-the-badge&logo=internet-explorer" alt="演示站点">
-</a>
-</h3>
+<table>
+<tr>
+<td><img src="./.github/images/img_7.png" alt="文件上传"></td>
+<td><img src="./.github/images/img_8.png" alt="文本分享"></td>
+</tr>
+<tr>
+<td><img src="./.github/images/img_10.png" alt="文件管理"></td>
+<td><img src="./.github/images/img_9.png" alt="系统设置"></td>
+</tr>
+<tr>
+<td><img src="./.github/images/img_11.png" alt="移动端"></td>
+<td><img src="./.github/images/img_12.png" alt="深色模式"></td>
+</tr>
+</table>
 </div>
+</details>
 
-### 新版界面
-
+<details>
+<summary><b>📦 经典界面 (2023)</b></summary>
+<br>
 <div align="center">
 <table>
 <tr>
-<td><img src="./.github/images/img_7.png" alt="文件上传" title="文件上传界面"></td>
-<td><img src="./.github/images/img_8.png" alt="文本分享" title="文本分享界面"></td>
+<td><img src="./.github/images/img.png" alt="首页"></td>
+<td><img src="./.github/images/img_1.png" alt="上传"></td>
 </tr>
 <tr>
-<td><img src="./.github/images/img_10.png" alt="文件管理" title="文件管理界面"></td>
-<td><img src="./.github/images/img_9.png" alt="系统设置" title="系统设置界面"></td>
-</tr>
-<tr>
-<td><img src="./.github/images/img_11.png" alt="移动端" title="移动端界面"></td>
-<td><img src="./.github/images/img_12.png" alt="深色模式" title="深色模式界面"></td>
-</tr>
-<tr>
-<td><img src="./.github/images/img_13.png" alt="国际化" title="国际化支持"></td>
-<td><img src="./.github/images/img_14.png" alt="响应式" title="响应式设计"></td>
+<td><img src="./.github/images/img_2.png" alt="管理"></td>
+<td><img src="./.github/images/img_3.png" alt="设置"></td>
 </tr>
 </table>
 </div>
+</details>
 
-### 经典界面
-
-<div align="center">
-<table>
-<tr>
-<td><img src="./.github/images/img.png" alt="首页" title="首页界面"></td>
-<td><img src="./.github/images/img_1.png" alt="上传" title="上传界面"></td>
-</tr>
-<tr>
-<td><img src="./.github/images/img_2.png" alt="管理" title="管理界面"></td>
-<td><img src="./.github/images/img_3.png" alt="设置" title="设置界面"></td>
-</tr>
-<tr>
-<td><img src="./.github/images/img_4.png" alt="分享" title="分享界面"></td>
-<td><img src="./.github/images/img_5.png" alt="下载" title="下载界面"></td>
-</tr>
-</table>
-</div>
-
-## 🎯 应用场景
-
-<table>
-<tr>
-<td align="center">
-<h4>📁 临时文件分享</h4>
-快速分享单个文件，无需注册登录
-</td>
-<td align="center">
-<h4>📝 文本快速分享</h4>
-分享代码片段、文本内容等
-</td>
-<td align="center">
-<h4>🕶️ 匿名文件传输</h4>
-保护隐私的文件传输方式
-</td>
-</tr>
-<tr>
-<td align="center">
-<h4>💾 临时文件存储</h4>
-支持设置过期时间的文件存储
-</td>
-<td align="center">
-<h4>🔄 跨平台传输</h4>
-在不同设备间快速传输文件
-</td>
-<td align="center">
-<h4>🌐 小型分享服务</h4>
-搭建私有的文件分享服务
-</td>
-</tr>
-</table>
-
-## ✨ 核心特性
-
-<table>
-<tr>
-<td align="center">
-<h4>🚀 轻量简洁</h4>
-基于 FastAPI + SQLite3 + Vue3 + ElementUI，部署简单，性能出色
-</td>
-<td align="center">
-<h4>📤 便捷上传</h4>
-支持复制粘贴、拖拽上传，操作简单直观
-</td>
-<td align="center">
-<h4>📦 多种类型</h4>
-支持文本和各类文件的分享
-</td>
-</tr>
-<tr>
-<td align="center">
-<h4>🔒 安全机制</h4>
-
-- IP 限制上传次数
-- 错误次数限制
-- 文件过期机制
-
-</td>
-<td align="center">
-<h4>🎫 提取码分享</h4>
-随机提取码，可自定义次数及有效期
-</td>
-<td align="center">
-<h4>🌍 多语言支持</h4>
-支持中文简体、繁体及英文
-</td>
-</tr>
-<tr>
-<td align="center">
-<h4>🎭 匿名分享</h4>
-无需注册登录，保护隐私
-</td>
-<td align="center">
-<h4>🛠 管理面板</h4>
-文件管理和系统配置
-</td>
-<td align="center">
-<h4>🐳 容器部署</h4>
-支持 Docker 一键部署
-</td>
-</tr>
-<tr>
-<td align="center">
-<h4>💾 存储扩展</h4>
-支持本地存储、S3 协议、<a href="./docs/guide/storage-onedrive.md">OneDrive</a>、<a href="./docs/guide/storage-opendal.md">OpenDAL</a> 等
-</td>
-<td align="center">
-<h4>📱 响应式设计</h4>
-支持移动端访问
-</td>
-<td align="center">
-<h4>💻 终端支持</h4>
-支持命令行下载
-</td>
-</tr>
-</table>
+---
 
 ## 🚀 快速开始
 
-### Docker 部署
+### Docker 部署（推荐）
 
-#### Docker CLI
+**方式一：Docker CLI**
 
 ```bash
-docker run -d --restart=always -p 12345:12345 -v /opt/FileCodeBox/:/app/data --name filecodebox lanol/filecodebox:latest
+# Docker Hub（推荐）
+docker run -d --restart always -p 12345:12345 -v /opt/FileCodeBox:/app/data --name filecodebox lanol/filecodebox:latest
+
+# 国内镜像（如果 Docker Hub 拉取缓慢）
+docker run -d --restart always -p 12345:12345 -v /opt/FileCodeBox:/app/data --name filecodebox docker.cnb.cool/aixk/filecodebox
 ```
 
-#### Docker Compose
+**方式二：Docker Compose**
 
-```yml
-version: "3"
+```yaml
 services:
-  file-code-box:
+  filecodebox:
     image: lanol/filecodebox:latest
-    volumes:
-      - fcb-data:/app/data:rw
+    container_name: filecodebox
     restart: unless-stopped
     ports:
       - "12345:12345"
+    volumes:
+      - ./data:/app/data
     environment:
       - WORKERS=4
       - LOG_LEVEL=info
-volumes:
-  fcb-data:
-    external: false
 ```
 
-#### 环境变量
+```bash
+docker compose up -d
+```
+
+**环境变量说明**
 
 | 变量 | 默认值 | 说明 |
 |------|--------|------|
-| `HOST` | `::` | 监听地址，支持 IPv4/IPv6 双栈 |
+| `HOST` | `::` | 监听地址（支持 IPv4/IPv6 双栈） |
 | `PORT` | `12345` | 服务端口 |
-| `WORKERS` | `4` | 工作进程数，建议设置为 CPU 核心数 |
-| `LOG_LEVEL` | `info` | 日志级别：debug/info/warning/error |
+| `WORKERS` | `4` | 工作进程数（建议设为 CPU 核心数） |
+| `LOG_LEVEL` | `info` | 日志级别：`debug` / `info` / `warning` / `error` |
 
-**自定义配置示例：**
+### 反向代理配置
 
-```bash
-docker run -d --restart=always \
-  -p 12345:12345 \
-  -v /opt/FileCodeBox/:/app/data \
-  -e WORKERS=8 \
-  -e LOG_LEVEL=warning \
-  --name filecodebox \
-  lanol/filecodebox:latest
-```
-
-### 配置反向代理（Nginx示例）
-
-请注意，必须添加以下配置来确保正确处理客户端IP和代理请求：
+使用 Nginx 时，请添加以下配置以正确获取客户端 IP：
 
 ```nginx
 location / {
-    proxy_set_header X-Real-IP $remote_addr;      # 设置真实客户端IP
+    proxy_pass http://127.0.0.1:12345;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    proxy_pass http://localhost:12345;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    client_max_body_size 100m;  # 根据需要调整上传大小限制
 }
 ```
 
 ### 手动部署
 
-1. 克隆项目
-
 ```bash
+# 1. 克隆项目
 git clone https://github.com/vastsa/FileCodeBox.git
-```
-
-2. 安装依赖
-
-```bash
 cd FileCodeBox
+
+# 2. 安装依赖
 pip install -r requirements.txt
-```
 
-3. 启动服务
-
-```bash
+# 3. 启动服务
 python main.py
 ```
 
-## 📖 使用说明
+---
 
-### 分享文件
+## 📖 使用指南
 
-1. 打开网页，点击"分享文件"
-2. 选择或拖拽文件
-3. 设置过期时间和次数
-4. 获取提取码
+### 基础操作
 
-### 获取文件
+| 操作 | 步骤 |
+|------|------|
+| **分享文件** | 打开网页 → 选择/拖拽文件 → 设置有效期 → 获取提取码 |
+| **获取文件** | 打开网页 → 输入提取码 → 下载文件或查看文本 |
+| **管理后台** | 访问 `/#/admin` → 输入密码 `FileCodeBox2023` |
 
-1. 打开网页，输入提取码
-2. 点击获取
-3. 下载文件或查看文本
+### 命令行使用（curl）
 
-### 管理面板
+<details>
+<summary><b>点击展开 curl 使用示例</b></summary>
 
-1. 访问 `/#/admin`
-2. 输入管理员密码 `FileCodeBox2023`
-3. 管理文件和配置
-
-### 命令行上传（curl）
-
-支持通过 curl 命令上传文件并获取取件码：
+**上传文件**
 
 ```bash
-# 上传文件（默认1天有效期）
+# 基础上传（默认 1 天有效期）
 curl -X POST "http://localhost:12345/share/file/" \
-  -F "file=@/path/to/your/file.txt"
+  -F "file=@/path/to/file.txt"
 
-# 上传文件并指定有效期（1小时）
+# 指定 1 小时有效期
 curl -X POST "http://localhost:12345/share/file/" \
-  -F "file=@/path/to/your/file.txt" \
+  -F "file=@/path/to/file.txt" \
   -F "expire_value=1" \
   -F "expire_style=hour"
 
-# 上传文件并指定有效期（可下载10次）
+# 指定下载 10 次后过期
 curl -X POST "http://localhost:12345/share/file/" \
-  -F "file=@/path/to/your/file.txt" \
+  -F "file=@/path/to/file.txt" \
   -F "expire_value=10" \
   -F "expire_style=count"
-
-# 分享文本
-curl -X POST "http://localhost:12345/share/text/" \
-  -F "text=这是要分享的文本内容"
-
-# 通过取件码下载文件
-curl -L "http://localhost:12345/share/select/?code=取件码" -o downloaded_file
 ```
 
-**参数说明：**
-- `expire_value`: 有效期数值（默认1）
-- `expire_style`: 有效期类型
-  - `day` - 天数
-  - `hour` - 小时
-  - `minute` - 分钟
-  - `count` - 下载次数
-  - `forever` - 永久有效
+**分享文本**
 
-**返回示例：**
+```bash
+curl -X POST "http://localhost:12345/share/text/" \
+  -F "text=要分享的文本内容"
+```
+
+**下载文件**
+
+```bash
+curl -L "http://localhost:12345/share/select/?code=提取码" -o filename
+```
+
+**有效期参数**
+
+| `expire_style` | 说明 |
+|----------------|------|
+| `day` | 天数 |
+| `hour` | 小时 |
+| `minute` | 分钟 |
+| `count` | 下载次数 |
+| `forever` | 永久有效 |
+
+**返回示例**
+
 ```json
 {
   "code": 200,
@@ -341,29 +317,23 @@ curl -L "http://localhost:12345/share/select/?code=取件码" -o downloaded_file
 }
 ```
 
-> 注意：如果管理面板关闭了游客上传（`openUpload=false`），需要先登录获取 token，然后在请求中添加 `Authorization: Bearer <token>` 头。
-
-**需要认证时的用法：**
+**需要认证时**（管理员关闭游客上传后）
 
 ```bash
-# 1. 先登录获取 token
+# 1. 获取 token
 curl -X POST "http://localhost:12345/admin/login" \
   -H "Content-Type: application/json" \
   -d '{"password": "FileCodeBox2023"}'
 
-# 返回示例：
-# {"code":200,"msg":"success","detail":{"token":"xxx.xxx.xxx","token_type":"Bearer"}}
-
-# 2. 使用 token 上传文件
+# 2. 携带 token 上传
 curl -X POST "http://localhost:12345/share/file/" \
-  -H "Authorization: Bearer xxx.xxx.xxx" \
-  -F "file=@/path/to/your/file.txt"
-
-# 2. 使用 token 分享文本
-curl -X POST "http://localhost:12345/share/text/" \
-  -H "Authorization: Bearer xxx.xxx.xxx" \
-  -F "text=这是要分享的文本内容"
+  -H "Authorization: Bearer <token>" \
+  -F "file=@/path/to/file.txt"
 ```
+
+</details>
+
+---
 
 ## 🛠 开发指南
 
@@ -371,71 +341,131 @@ curl -X POST "http://localhost:12345/share/text/" \
 
 ```
 FileCodeBox/
-├── apps/           # 应用代码
-│   ├── admin/     # 管理后台
-│   └── base/      # 基础功能
-├── core/          # 核心功能
-├── data/          # 数据目录
-└── fcb-fronted/   # 前端代码
+├── apps/              # 应用模块
+│   ├── admin/         # 管理后台
+│   └── base/          # 基础功能
+├── core/              # 核心模块
+├── data/              # 数据目录（运行时生成）
+├── docs/              # 文档
+└── main.py            # 入口文件
 ```
-
-### 开发环境
-
-- Python 3.8+
-- Node.js 14+
-- Vue 3
-- FastAPI
 
 ### 本地开发
 
-1. 后端开发
+**后端**
 
 ```bash
+pip install -r requirements.txt
 python main.py
 ```
 
-2. 前端开发
+**前端**
 
 ```bash
+# 前端仓库: https://github.com/vastsa/FileCodeBoxFronted
 cd fcb-fronted
 npm install
 npm run dev
 ```
 
-## 🤝 贡献指南
+### 技术栈
 
-1. Fork 本项目
-2. 创建新分支 `git checkout -b feature/xxx`
-3. 提交更改 `git commit -m 'Add xxx'`
-4. 推送到分支 `git push origin feature/xxx`
-5. 提交 Pull Request
+| 类别 | 技术 |
+|------|------|
+| **后端框架** | FastAPI 0.128+ / Uvicorn |
+| **数据库** | SQLite + Tortoise ORM |
+| **数据验证** | Pydantic 2.x |
+| **异步支持** | aiofiles / aiohttp / aioboto3 |
+| **对象存储** | S3 协议 / OneDrive / OpenDAL |
+| **前端框架** | Vue 3 + Element Plus + Vite |
+| **运行环境** | Python 3.8+ / Node.js 18+ |
+| **容器化** | Docker / Docker Compose |
+
+---
 
 ## ❓ 常见问题
 
-### Q: 如何修改上传大小限制？
+<details>
+<summary><b>如何修改上传大小限制？</b></summary>
 
-A: 在管理面板中修改配置项 `uploadSize`
+在管理面板中修改 `uploadSize` 配置项。如果使用 Nginx 反向代理，还需修改 `client_max_body_size`。
+</details>
 
-### Q: 如何配置存储引擎？
+<details>
+<summary><b>如何配置存储引擎？</b></summary>
 
-A: 在管理面板中选择存储引擎并配置相应参数
+在管理面板中选择存储引擎类型并配置相应参数。支持本地存储、S3、OneDrive、OpenDAL 等。
+</details>
 
-### Q: 如何备份数据？
+<details>
+<summary><b>如何备份数据？</b></summary>
 
-A: 备份 `data` 目录即可
+备份 `data` 目录即可，包含数据库和上传的文件。
+</details>
 
-更多问题请访问 [Wiki](https://github.com/vastsa/FileCodeBox/wiki/常见问题)
+<details>
+<summary><b>如何修改管理员密码？</b></summary>
+
+登录管理面板后，在系统设置中修改 `adminPassword` 配置项。
+</details>
+
+更多问题请访问 [Wiki](https://github.com/vastsa/FileCodeBox/wiki/常见问题) 或加入 [QQ群: 739673698](https://qm.qq.com/q/PemPzhdEIM)
+
+---
+
+## 🤝 贡献指南
+
+欢迎提交 Issue 和 Pull Request！
+
+```bash
+# 1. Fork 并克隆
+git clone https://github.com/your-username/FileCodeBox.git
+
+# 2. 创建分支
+git checkout -b feature/your-feature
+
+# 3. 提交更改
+git commit -m "feat: add your feature"
+
+# 4. 推送并创建 PR
+git push origin feature/your-feature
+```
+
+---
 
 ## 📊 项目统计
 
 <div align="center">
-<a href="https://hellogithub.com/repository/75ad7ffedd404a6485b4d621ec5b47e6" target="_blank"><img src="https://api.hellogithub.com/v1/widgets/recommend.svg?rid=75ad7ffedd404a6485b4d621ec5b47e6&claim_uid=beSz6INEkCM4mDH" alt="Featured｜HelloGitHub" style="width: 200px; height: 45px;" width="200" height="45" /></a>
+
+<a href="https://hellogithub.com/repository/75ad7ffedd404a6485b4d621ec5b47e6" target="_blank">
+  <img src="https://api.hellogithub.com/v1/widgets/recommend.svg?rid=75ad7ffedd404a6485b4d621ec5b47e6&claim_uid=beSz6INEkCM4mDH" alt="HelloGitHub" width="200">
+</a>
 
 ![Repobeats](https://repobeats.axiom.co/api/embed/7a6c92f1d96ee57e6fb67f0df371528397b0c9ac.svg)
 
 [![Star History](https://api.star-history.com/svg?repos=vastsa/FileCodeBox&type=Date)](https://star-history.com/#vastsa/FileCodeBox&Date)
+
 </div>
+
+---
+
+## 🗓 更新计划
+
+- [ ] 2025 年新皮肤
+- [ ] 文件收集功能
+
+---
 
 ## 📜 免责声明
 
-本项目开源仅供学习使用，不得用于任何违法用途，否则后果自负，与作者无关。使用时请保留项目地址和版权信息。
+本项目开源仅供学习交流使用，不得用于任何违法用途，否则后果自负，与作者无关。使用本项目时请保留项目地址和版权信息。
+
+---
+
+<div align="center">
+
+**如果觉得项目不错，欢迎 ⭐ Star 支持！**
+
+Made with ❤️ by [vastsa](https://github.com/vastsa)
+
+</div>
